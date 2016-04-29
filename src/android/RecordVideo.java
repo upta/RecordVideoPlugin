@@ -4,7 +4,7 @@
  *
  */
 
-package com.caasera.record;
+package com.caasera.android;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -48,7 +48,7 @@ public class RecordVideo extends CordovaPlugin {
     }
 
     private void record() {
-        Intent intent = new Intent(this, com.caasera.record.RecordActivity.class);
+        Intent intent = new Intent(this, RecordActivity.class);
         this.cordova.getActivity().startActivityForResult((CordovaPlugin) this, intent, 0);
     }
 }
