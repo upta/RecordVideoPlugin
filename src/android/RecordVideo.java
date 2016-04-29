@@ -4,7 +4,7 @@
  *
  */
 
-package com.dawsonloudon.videoplayer;
+package com.caasera.record;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -47,8 +47,8 @@ public class RecordVideo extends CordovaPlugin {
         return true;
     }
 
-    private void record(String url) throws IOException {
-        Intent intent = new Intent(this, RecordActivity.class);
+    private void record() {
+        Intent intent = new Intent(this, com.caasera.record.RecordActivity.class);
         this.cordova.getActivity().startActivityForResult((CordovaPlugin) this, intent, 0);
     }
 }

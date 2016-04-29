@@ -1,4 +1,4 @@
-package com.example.bmu.myapplication;
+package com.caasera.record;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
