@@ -31,17 +31,14 @@ public class RecordVideo extends CordovaPlugin {
         PluginResult.Status status = PluginResult.Status.OK;
         String result = "";
 
-        try {
-            if (action.equals("record")) {
-                record();
-            }
-            else {
-                status = PluginResult.Status.INVALID_ACTION;
-            }
-            callbackContext.sendPluginResult(new PluginResult(status, result));
-        } catch (IOException e) {
-            callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.IO_EXCEPTION));
+        if (action.equals("record")) {
+            record();
         }
+        else {
+            status = PluginResult.Status.INVALID_ACTION;
+        }
+        callbackContext.sendPluginResult(new PluginResult(status, result));
+            
         return true;
     }
 
