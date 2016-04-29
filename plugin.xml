@@ -33,9 +33,9 @@
             
             <activity android:name="com.caasera.android.RecordActivity"></activity>
         </config-file>
-        <source-file src="src/android/RecordVideo.java" target-dir="src/com/caasera/record" />
-        <source-file src="src/android/RecordActivity.java" target-dir="src/com/caasera/record" />
-        <source-file src="src/android/CameraHelper.java" target-dir="src/com/caasera/record" />
+        <source-file src="src/android/RecordVideo.java" target-dir="src/com/caasera/android" />
+        <source-file src="src/android/RecordActivity.java" target-dir="src/com/caasera/android" />
+        <source-file src="src/android/CameraHelper.java" target-dir="src/com/caasera/android" />
         <source-file src="src/android/record.png" target-dir="res/drawable" />
         <source-file src="src/android/activity_record.xml" target-dir="res/layout" />
         <source-file src="src/android/spinner_view.xml" target-dir="res/layout" />
