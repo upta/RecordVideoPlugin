@@ -130,7 +130,7 @@ public class RecordActivity extends Activity {
            if (ContextCompat.checkSelfPermission(this, permissions[i]) != PackageManager.PERMISSION_GRANTED)
            {
                ActivityCompat.requestPermissions(this, permissions, 1);
-               break;
+               return;
            }
         }
 
