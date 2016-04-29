@@ -1,7 +1,7 @@
 var exec = require("cordova/exec");
 
 var RecordVideo = {
-    play: function(url) {
+    record: function(url) {
         exec(null, null, "RecordVideo", "record", []);
     }
 };
