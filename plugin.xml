@@ -31,9 +31,7 @@
             <uses-permission android:name="android.permission.RECORD_VIDEO" />
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
             
-            <activity android:name="com.caasera.record.RecordActivity">
-                <intent-filter></intent-filter>
-            </activity>
+            <activity android:name="com.caasera.record.RecordActivity"></activity>
         </config-file>
         <source-file src="src/android/RecordVideo.java" target-dir="src/com/caasera/record" />
         <source-file src="src/android/RecordActivity.java" target-dir="src/com/caasera/record" />
