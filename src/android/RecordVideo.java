@@ -43,7 +43,7 @@ public class RecordVideo extends CordovaPlugin {
     }
 
     private void record() {
-        CordovaPlugin plugin = (CordovaPlugin) this;
+        final CordovaPlugin plugin = (CordovaPlugin) this;
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
