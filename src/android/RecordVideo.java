@@ -49,7 +49,7 @@ public class RecordVideo extends CordovaPlugin {
                 Context context = cordova.getActivity().getApplicationContext();
                 Intent intent = new Intent(context, RecordActivity.class);
                 
-                cordova.startActivityForResult(this, intent,0);
+                cordova.startActivityForResult( (CordovaPlugin) this, intent,0);
             }
         });
     }
