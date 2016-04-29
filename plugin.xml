@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.caasera.record"
+    id="com.caasera.android"
     version="1.0.0">
 
     <engines>
@@ -31,7 +31,7 @@
             <uses-permission android:name="android.permission.RECORD_VIDEO" />
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
             
-            <activity android:name="com.caasera.record.RecordActivity"></activity>
+            <activity android:name="com.caasera.android.RecordActivity"></activity>
         </config-file>
         <source-file src="src/android/RecordVideo.java" target-dir="src/com/caasera/record" />
         <source-file src="src/android/RecordActivity.java" target-dir="src/com/caasera/record" />
