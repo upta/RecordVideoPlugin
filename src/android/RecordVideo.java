@@ -43,13 +43,14 @@ public class RecordVideo extends CordovaPlugin {
     }
 
     private void record() {
+        CordovaPlugin plugin = (CordovaPlugin) this;
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Context context = cordova.getActivity().getApplicationContext();
                 Intent intent = new Intent(context, RecordActivity.class);
                 
-                cordova.startActivityForResult( (CordovaPlugin) this, intent,0);
+                cordova.startActivityForResult( plugin, intent,0);
             }
         });
     }
