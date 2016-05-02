@@ -143,7 +143,7 @@ public class RecordActivity extends Activity {
     private void setupDelay()
     {
         String delays[] = { "0s", "3s", "5s", "10s"};
-        _delayAdapter = new ArrayAdapter<>(this, R.layout.spinner_view, delays);
+        _delayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_view, delays);
         _delayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         _delayList.setAdapter(_delayAdapter);
 
