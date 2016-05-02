@@ -26,20 +26,32 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 
 public class RecordVideo extends CordovaPlugin {
+    
+    CallbackContext _callbackContext;
+    
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-        PluginResult.Status status = PluginResult.Status.OK;
-        String result = "";
-
+        
+        _callbackContext = callbackContext;
+        
         if (action.equals("record")) {
             record();
+            return true;
         }
-        else {
-            status = PluginResult.Status.INVALID_ACTION;
-        }
-        callbackContext.sendPluginResult(new PluginResult(status, result));
             
-        return true;
+        return false;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {   	
+    	if (resultCode == Activity.RESULT_OK)
+        {
+            _callbackContext.success(intent.intent.getStringExtra("file"));
+        }
+        else
+        {
+            _callbackContext.error("");
+        }
     }
 
     private void record() {
@@ -50,7 +62,7 @@ public class RecordVideo extends CordovaPlugin {
                 Context context = cordova.getActivity().getApplicationContext();
                 Intent intent = new Intent(context, RecordActivity.class);
                 
-                cordova.startActivityForResult( plugin, intent,0);
+                cordova.startActivityForResult( plugin, intent, 0 );
             }
         });
     }
