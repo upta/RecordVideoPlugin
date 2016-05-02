@@ -440,7 +440,7 @@ public class RecordActivity extends Activity {
         @Override
         protected void onPostExecute(Boolean result) {
             if (!result) {
-                this.setResult(Activity.RESULT_CANCELED);
+                RecordActivity.this.setResult(Activity.RESULT_CANCELED);
                 RecordActivity.this.finish();
             }
         }
