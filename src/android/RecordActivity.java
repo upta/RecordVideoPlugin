@@ -1,4 +1,4 @@
-package com.caasera.android
+package com.caasera.android;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
