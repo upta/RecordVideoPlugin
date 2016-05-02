@@ -47,7 +47,7 @@ public class RecordVideo extends CordovaPlugin {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {   	
     	if (resultCode == Activity.RESULT_OK)
         {
-            _callbackContext.success(intent.intent.getStringExtra("file"));
+            _callbackContext.success(intent.getStringExtra("file"));
         }
         else
         {
