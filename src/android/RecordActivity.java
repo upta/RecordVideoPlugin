@@ -241,13 +241,18 @@ public class RecordActivity extends Activity {
 
     private void hideControls()
     {
-        Animation anim = new ScaleAnimation(1f, 0f, 1f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        anim.setDuration(300);
-        anim.setFillAfter(true);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Animation anim = new ScaleAnimation(1f, 0f, 1f, 0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+                anim.setDuration(300);
+                anim.setFillAfter(true);
 
-        _capture.startAnimation(anim);
+                _capture.startAnimation(anim);
 
-        _delayContainer.setVisibility(View.GONE);
+                _delayContainer.setVisibility(View.GONE);
+            }
+        });
     }
 
     private int calcCameraRotation() {
