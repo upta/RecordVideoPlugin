@@ -1,7 +1,8 @@
-package com.caasera.android;
+package com.example.bmu.myapplication;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
@@ -68,6 +69,8 @@ public class RecordActivity extends Activity {
                 stopTimer();
                 _recorder.stop();
                 releaseMediaRecorder();
+
+                success();
             }
             else {
                 _timerDisplay.setText(String.format("%02d:%02d:%03d", minutes, seconds, ms));
@@ -140,7 +143,7 @@ public class RecordActivity extends Activity {
     private void setupDelay()
     {
         String delays[] = { "0s", "3s", "5s", "10s"};
-        _delayAdapter = new ArrayAdapter<String>(this, R.layout.spinner_view, delays);
+        _delayAdapter = new ArrayAdapter<>(this, R.layout.spinner_view, delays);
         _delayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         _delayList.setAdapter(_delayAdapter);
 
@@ -163,6 +166,7 @@ public class RecordActivity extends Activity {
         {
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED)
             {
+                this.setResult(Activity.RESULT_CANCELED);
                 this.finish();
                 break;
             }
@@ -369,6 +373,15 @@ public class RecordActivity extends Activity {
         }
     }
 
+    private void success()
+    {
+        Intent intent = new Intent();
+        intent.putExtra("file", _outputFile);
+        
+        this.setResult(Activity.RESULT_OK, intent);
+        this.finish();
+    }
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private boolean prepareVideoRecorder() {
         _camera = CameraHelper.getDefaultCameraInstance();
@@ -427,6 +440,7 @@ public class RecordActivity extends Activity {
         @Override
         protected void onPostExecute(Boolean result) {
             if (!result) {
+                this.setResult(Activity.RESULT_CANCELED);
                 RecordActivity.this.finish();
             }
         }
