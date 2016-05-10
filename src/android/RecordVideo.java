@@ -64,7 +64,8 @@ public class RecordVideo extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera").mkdirs();
+                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
+                saveDir.mkdirs();
 
                 new MaterialCamera(this)
                         .saveDir(saveDir)
