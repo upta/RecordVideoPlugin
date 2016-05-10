@@ -51,7 +51,7 @@ public class RecordVideo extends CordovaPlugin {
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (resultCode == Activity.RESULT_OK)
         {
-            _callbackContext.success(intent.getStringExtra("file"));
+            _callbackContext.success(intent.getDataString());
         }
         else
         {
@@ -60,7 +60,7 @@ public class RecordVideo extends CordovaPlugin {
     }
 
     private void record() {
-        final CordovaPlugin plugin = (CordovaPlugin) this;
+        /*final CordovaPlugin plugin = (CordovaPlugin) this;
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -78,6 +78,20 @@ public class RecordVideo extends CordovaPlugin {
                         .defaultToFrontFacing(true)
                         .start(1);
             }
-        });
+        });*/
+        
+                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
+                saveDir.mkdirs();
+
+                new MaterialCamera(cordova.getActivity())
+                        .saveDir(saveDir)
+                        .showPortraitWarning(false)
+                        .autoSubmit(true)
+                        .allowRetry(false)
+                        .videoFrameRate(120)
+                        .videoPreferredHeight(720)
+                        .countdownSeconds(30f)
+                        .defaultToFrontFacing(true)
+                        .start(1);
     }
 }
