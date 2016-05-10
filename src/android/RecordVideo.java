@@ -60,10 +60,24 @@ public class RecordVideo extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Context context = cordova.getActivity().getApplicationContext();
-                Intent intent = new Intent(context, RecordActivity.class);
-                
-                cordova.startActivityForResult( plugin, intent, 0 );
+                File saveDir = null;
+
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                    // Only use external storage directory if permission is granted, otherwise cache directory is used by default
+                    saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
+                    saveDir.mkdirs();
+                }
+
+                new MaterialCamera(this)
+                        .saveDir(saveDir)
+                        .showPortraitWarning(false)
+                        .autoSubmit(true)
+                        .allowRetry(false)
+                        .videoFrameRate(120)
+                        .videoPreferredHeight(720)
+                        .countdownSeconds(30f)
+                        .defaultToFrontFacing(true)
+                        .start(1);
             }
         });
     }
