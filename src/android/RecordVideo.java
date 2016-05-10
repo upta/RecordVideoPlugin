@@ -51,12 +51,13 @@ public class RecordVideo extends CordovaPlugin {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-                Toast.makeText(cordova.getActivity(), "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
-            } else if(data != null) {
-                Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
-                e.printStackTrace();
-                Toast.makeText(cordova.getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
-            }
+            _callbackContext.success(intent.getDataString());
+        } 
+        else if (data != null) {
+            Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
+            e.printStackTrace();
+            _callbackContext.error("");
+        }
         /*
         if (resultCode == Activity.RESULT_OK)
         {
