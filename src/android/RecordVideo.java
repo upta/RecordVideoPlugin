@@ -28,6 +28,8 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 
+import com.afollestad.materialcamera.MaterialCamera;
+
 public class RecordVideo extends CordovaPlugin {
 
     CallbackContext _callbackContext;
@@ -62,8 +64,7 @@ public class RecordVideo extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
-                saveDir.mkdirs();
+                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera").mkdirs();
 
                 new MaterialCamera(this)
                         .saveDir(saveDir)
