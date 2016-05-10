@@ -51,7 +51,7 @@ public class RecordVideo extends CordovaPlugin {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            _callbackContext.success(intent.getDataString());
+            _callbackContext.success(data.getDataString());
         } 
         else if (data != null) {
             Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
