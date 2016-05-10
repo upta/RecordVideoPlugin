@@ -90,11 +90,11 @@ public class RecordVideo extends CordovaPlugin {
         });*/
                 cordova.setActivityResultCallback(this);
         
-                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
-                saveDir.mkdirs();
+                //File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
+                //saveDir.mkdirs();
 
                 new MaterialCamera(cordova.getActivity())
-                        .saveDir(saveDir)
+                        //.saveDir(saveDir)
                         .showPortraitWarning(false)
                         .autoSubmit(true)
                         .allowRetry(false)
