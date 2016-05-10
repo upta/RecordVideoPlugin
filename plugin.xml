@@ -19,6 +19,8 @@
 	</js-module>
     
     <platform name="android">
+        <framework src="plugin.gradle" custom="true" type="gradleReference" />
+    
 		<config-file target="res/xml/config.xml" parent="/*">
             <feature name="RecordVideo" >
                 <param name="android-package" value="com.caasera.android.RecordVideo"/>
@@ -32,14 +34,14 @@
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.caasera.android.RecordActivity"></activity>
+            <activity
+                android:name="com.afollestad.materialcamera.CaptureActivity"
+                android:theme="@style/MaterialCamera.CaptureActivity" />
+            <activity
+                android:name="com.afollestad.materialcamera.CaptureActivity2"
+                android:theme="@style/MaterialCamera.CaptureActivity" />
         </config-file>
         <source-file src="src/android/RecordVideo.java" target-dir="src/com/caasera/android" />
-        <source-file src="src/android/RecordActivity.java" target-dir="src/com/caasera/android" />
-        <source-file src="src/android/CameraHelper.java" target-dir="src/com/caasera/android" />
-        <source-file src="src/android/record.png" target-dir="res/drawable" />
-        <source-file src="src/android/activity_record.xml" target-dir="res/layout" />
-        <source-file src="src/android/spinner_view.xml" target-dir="res/layout" />
 	</platform>
     
 </plugin>

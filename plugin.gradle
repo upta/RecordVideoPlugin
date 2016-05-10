@@ -1,0 +1,5 @@
+dependencies {
+    compile('com.github.afollestad:material-camera:0.2.5@aar') {
+        transitive = true
+    }
+}
