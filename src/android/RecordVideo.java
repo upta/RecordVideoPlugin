@@ -16,36 +16,39 @@ import java.net.URLConnection;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Environment;
+import android.support.v4.content.ContextCompat;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 
 public class RecordVideo extends CordovaPlugin {
-    
+
     CallbackContext _callbackContext;
-    
+
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
-        
+
         _callbackContext = callbackContext;
-        
+
         if (action.equals("record")) {
             record();
             return true;
         }
-            
+
         return false;
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {   	
-    	if (resultCode == Activity.RESULT_OK)
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (resultCode == Activity.RESULT_OK)
         {
             _callbackContext.success(intent.getStringExtra("file"));
         }
