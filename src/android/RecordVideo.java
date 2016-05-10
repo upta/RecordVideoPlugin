@@ -23,7 +23,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -63,13 +62,8 @@ public class RecordVideo extends CordovaPlugin {
         cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                File saveDir = null;
-
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                    // Only use external storage directory if permission is granted, otherwise cache directory is used by default
-                    saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
-                    saveDir.mkdirs();
-                }
+                File saveDir = new File(Environment.getExternalStorageDirectory(), "Caasera");
+                saveDir.mkdirs();
 
                 new MaterialCamera(this)
                         .saveDir(saveDir)
