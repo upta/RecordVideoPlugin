@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Environment;
+import android.widget.Toast;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -48,8 +49,8 @@ public class RecordVideo extends CordovaPlugin {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        if (resultCode == RESULT_OK) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
                 Toast.makeText(this, "Saved to: " + data.getDataString(), Toast.LENGTH_LONG).show();
             } else if(data != null) {
                 Exception e = (Exception) data.getSerializableExtra(MaterialCamera.ERROR_EXTRA);
