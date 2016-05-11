@@ -1,11 +1,17 @@
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url  "http://dl.bintray.com/drummer-aidan/maven" 
+        }
     }
 }
 
 repositories {
     jcenter()
+    maven {
+        url  "http://dl.bintray.com/drummer-aidan/maven" 
+    }
 }
 
 dependencies {
