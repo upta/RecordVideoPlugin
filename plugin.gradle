@@ -9,5 +9,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.afollestad:material-camera:0.2.6@aar'
+    compile('com.afollestad:material-camera:0.2.6@aar') {
+        transitive = true
+    }
 }
