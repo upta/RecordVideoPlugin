@@ -97,7 +97,7 @@ public class RecordVideo extends CordovaPlugin {
                 new MaterialCamera(cordova.getActivity())
                         //.saveDir(saveDir)
                         .showPortraitWarning(false)
-                        .defaultToFrontFacing(true) 
+                        .defaultToFrontFacing(false) 
                         .autoSubmit(true)
                         .allowRetry(false)
                         .videoFrameRate(120)
