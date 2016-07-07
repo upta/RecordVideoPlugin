@@ -1,15 +1,23 @@
 buildscript {
     repositories {
         maven { url "https://jitpack.io" }
+        jcenter()
+        maven {
+            url  "http://dl.bintray.com/drummer-aidan/maven" 
+        }
     }
 }
 
 repositories {
     maven { url "https://jitpack.io" }
+    jcenter()
+    maven {
+        url  "http://dl.bintray.com/drummer-aidan/maven" 
+    }
 }
 
 dependencies {
-    compile('com.github.upta:material-camera:master-SNAPSHOT') {
+    compile('com.afollestad:material-camera:0.2.6@aar') {
         transitive = true
     }
 }
