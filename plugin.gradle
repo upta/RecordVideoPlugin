@@ -19,5 +19,6 @@ repositories {
 dependencies {
     compile('com.github.upta:material-camera:master-SNAPSHOT') {
         transitive = true
+        changing = true
     }
 }
